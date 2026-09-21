@@ -3,7 +3,7 @@
 ## The mechanism, restated in full
 
 The serial-unlock-with-keyring-cache mechanism was generalised from the sibling
-[nixnas](https://github.com/julian-corbet/nixnas) project's
+[nixnas](https://github.com/corbet-nix/nixnas) project's
 `modules/storage/connect.nix` (`storage.unlock`). What follows states the
 mechanism in host-agnostic terms without carrying a deployment identity or
 policy value into this public repository.

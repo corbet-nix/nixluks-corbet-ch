@@ -15,7 +15,7 @@ remembers to run again after a key rotation; and no way to notice that a
 keyslot got added by hand, or that a rotation only half-happened, until a
 recovery is already underway. nixluks is the declared, generalised version of
 the first of these three things — a mechanism previously carried in the sibling
-[nixnas](https://github.com/julian-corbet/nixnas) project's own
+[nixnas](https://github.com/corbet-nix/nixnas) project's own
 appliance-specific storage-unlock code — plus the two that never existed
 anywhere before this repo.
 
@@ -96,7 +96,7 @@ on demand.
 
 ## Boundaries — one knob, one owner
 
-- **vs [nixboot](https://github.com/julian-corbet/nixboot-corbet-ch)**:
+- **vs [nixboot](https://github.com/corbet-nix/nixboot-corbet-ch)**:
   nixboot's own `remoteUnlock` guards a DIFFERENT secret over a DIFFERENT
   channel — the TPM2-sealed initrd-SSH host key that lets an operator type a
   passphrase in remotely. It never declares, opens, or times out a LUKS
@@ -112,7 +112,7 @@ on demand.
   sizes, which region plays which role. nixluks declares the CRYPTO LAYER on
   a region nixstorage already named. Geometry → crypto → filesystem, three
   separate declarations, never one module doing all three.
-- **vs [nixvault](https://github.com/julian-corbet/nixvault-corbet-ch)**:
+- **vs [nixvault](https://github.com/corbet-nix/nixvault-corbet-ch)**:
   nixvault owns what goes INSIDE a vault, and how its contents are staged and
   committed. Nixluks owns the crypto lifecycle boundary: currently the
   declaration, unlock, header backup and verification, and exclusively any
@@ -120,7 +120,7 @@ on demand.
   this module needs to know about; it is another declared volume. A mounted vault is also
   exactly the kind of place `headerBackup.destination` belongs: private,
   already encrypted, already part of the same recovery story.
-- **vs [nixrescue](https://github.com/julian-corbet/nixrescue-corbet-ch)**:
+- **vs [nixrescue](https://github.com/corbet-nix/nixrescue-corbet-ch)**:
   nixrescue owns the rescue operating system, repair-tool selection and rescue
   artifact content. A rescue configuration may compose nixluks to inspect or
   unlock a declared volume, but it must not grow a second LUKS formatter,
@@ -204,7 +204,7 @@ else: byte-identical rendered unit commands, byte-identical crypttab.
 
 ```nix
 {
-  inputs.nixluks.url = "github:julian-corbet/nixluks-corbet-ch";
+  inputs.nixluks.url = "github:corbet-nix/nixluks-corbet-ch";
 
   outputs = { self, nixpkgs, nixluks, ... }: {
     nixosConfigurations.myhost = nixpkgs.lib.nixosSystem {
@@ -293,19 +293,19 @@ than implying it has already shipped.
 ## Related projects
 
 Part of the same small, independently-usable NixOS module family:
-[nixnas](https://github.com/julian-corbet/nixnas) (the
+[nixnas](https://github.com/corbet-nix/nixnas) (the
 serial-unlock-with-keyring-cache mechanism this module generalises out of its
-`modules/storage/connect.nix`), [nixvault](https://github.com/julian-corbet/nixvault-corbet-ch)
+`modules/storage/connect.nix`), [nixvault](https://github.com/corbet-nix/nixvault-corbet-ch)
 (the VM-test pattern this project's own `checks/lifecycle-vm-test.nix`
 copies, and the module this repo's own vault-as-a-chain-member boundary
-refers to), [nixfs](https://github.com/julian-corbet/nixfs-corbet-ch) (the
+refers to), [nixfs](https://github.com/corbet-nix/nixfs-corbet-ch) (the
 "one file, both backends" export shape this project's dual-backend export
-copies), and [nixboot](https://github.com/julian-corbet/nixboot-corbet-ch)
+copies), and [nixboot](https://github.com/corbet-nix/nixboot-corbet-ch)
 (the prose-option, one-knob-one-owner house style, and the initrd-side unlock
 `raiseMode = "preopened"` composes with). nixluks has no build-time dependency
 on any of them — it is built to sit on any host, independent of whatever
 boot stance or vault that host uses.
 
-## License
+## Licence
 
-[MIT License](LICENSE) &copy; 2026 Julian Corbet
+Outbound licence is `MIT OR Apache-2.0`. See `LICENSE-MIT` and `LICENSE-APACHE`; every source file carries `SPDX-License-Identifier: MIT OR Apache-2.0`.

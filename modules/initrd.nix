@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/initrd.nix -- open declared nixluks volumes IN THE INITRD (stage 1, before
 # switch-root).
 #

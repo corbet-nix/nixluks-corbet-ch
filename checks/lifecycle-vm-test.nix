@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # checks/lifecycle-vm-test.nix
 #
 # THE ONE REAL RUNTIME TEST in this project. Everything else under checks/ is eval-only. This is

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 {
   description = "nixluks -- declare which LUKS2 volumes a host unlocks post-boot, in what order, with header-backup orchestration and drift verification wired to the same declaration; the serial-unlock-with-keyring-cache mechanism generalised out of nixnas so any host, a disaster-recovery vault, or a rescue image can all share it.";
 

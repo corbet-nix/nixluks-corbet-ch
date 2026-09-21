@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # modules/nixluks.nix -- declare your LUKS2 volumes, unlock them with one passphrase, back up
 # their headers, and catch drift in what cryptsetup reports back. THIN by design, the same
 # posture as the sibling nixnas/nixvault/nixfs projects: this module does not reinvent LUKS --

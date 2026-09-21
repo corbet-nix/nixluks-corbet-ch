@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # checks/initrd.nix
 #
 # EVAL-TIME tests for modules/initrd.nix -- the NixOS-only companion that opens declared nixluks

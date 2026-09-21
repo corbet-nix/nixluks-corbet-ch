@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # lib/device-path.nix
 #
 # The one type nixluks needs from its host's disk layer, factored out so a consumer can validate
